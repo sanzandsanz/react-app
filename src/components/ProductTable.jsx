@@ -9,6 +9,31 @@ const Title = styled.div`
 
 class ProductTable extends React.Component {
     render() {
+
+        const products = this.props.productData;
+        let categoryName= "";
+        let categoryRelatedProducts = [];
+        let categoryWithProducts = [];
+        let categoryNameOnly = [];
+
+        products.map((item) => {
+
+            if(categoryName !== item.category){
+                categoryName = item.category;
+                categoryRelatedProducts = [];
+                categoryNameOnly.push(categoryName);
+            }
+
+             categoryRelatedProducts.push(item);
+             categoryWithProducts[categoryName] = categoryRelatedProducts;
+        });
+
+        categoryWithProducts.map((productWithCat) => {
+                console.log(productWithCat);
+        });
+
+
+
         return (
             <div className="producttable">
                 <div className="container">
@@ -19,7 +44,16 @@ class ProductTable extends React.Component {
                         <div className="col-xs-6 col-sm-4">
                             <Title>Price</Title>
                         </div>
-                        <ProductListing products={this.props.productData} />
+
+                        { 
+                            categoryNameOnly.map((catName) => {
+                                return <ProductListing key={catName} title={catName} products={ categoryWithProducts[catName]} />
+                            })
+                        }
+                        
+                        {/* { listing } */}
+
+                        {/* <ProductListing products={this.props.productData} /> */}
                     </div>
                 </div>
             </div>

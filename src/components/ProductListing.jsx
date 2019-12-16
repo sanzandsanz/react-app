@@ -3,10 +3,7 @@ import Product from './Product';
 
 class ProductListing extends React.Component {
     render() {
-        let products = this.props.products;
-        return products.map((product) => {
-            return <Product product={product} key={product.name} />
-        });
+        return <Product title= {this.props.title} products={this.props.products} />
     }
 }
 

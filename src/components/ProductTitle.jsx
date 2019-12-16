@@ -1,15 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Title = styled.div`
+    font-weight: bold;
+    color: red;
+`;
 
 class ProductTitle extends React.Component {
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-12">
-                        { this.props.value }
-                    </div>
-                </div>
-            </div>
+            <Title> {this.props.title } </Title>
         );
     }
 }
