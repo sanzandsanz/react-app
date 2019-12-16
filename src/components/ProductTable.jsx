@@ -9,30 +9,8 @@ const Title = styled.div`
 
 class ProductTable extends React.Component {
     render() {
-
-        const products = this.props.productData;
-        let categoryName= "";
-        let categoryRelatedProducts = [];
-        let categoryWithProducts = [];
-        let categoryNameOnly = [];
-
-        products.map((item) => {
-
-            if(categoryName !== item.category){
-                categoryName = item.category;
-                categoryRelatedProducts = [];
-                categoryNameOnly.push(categoryName);
-            }
-
-             categoryRelatedProducts.push(item);
-             categoryWithProducts[categoryName] = categoryRelatedProducts;
-        });
-
-        categoryWithProducts.map((productWithCat) => {
-                console.log(productWithCat);
-        });
-
-
+        const categoryWithProducts = this.props.categoryWithProducts;
+        const categoryNameOnly = this.props.categoryNameOnly;
 
         return (
             <div className="producttable">
@@ -50,10 +28,6 @@ class ProductTable extends React.Component {
                                 return <ProductListing key={catName} title={catName} products={ categoryWithProducts[catName]} />
                             })
                         }
-                        
-                        {/* { listing } */}
-
-                        {/* <ProductListing products={this.props.productData} /> */}
                     </div>
                 </div>
             </div>

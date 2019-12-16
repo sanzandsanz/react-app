@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CategoryDropDown from './CategoryDropDown';
 
 class SearchBar extends Component {
     render() {
@@ -7,9 +8,10 @@ class SearchBar extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-xs-12 col-sm-4">
-                            <input type="text" name="searchBar" placeholder="Search" />
+                            <CategoryDropDown categories = { this.props.categories } />
+                            {/* <input type="text" name="searchBar" placeholder="Search" />
                             <br />
-                            <input type="checkbox" name="searchAll" value="searchAll" /> Only show products in stock
+                            <input type="checkbox" name="searchAll" value="searchAll" /> Only show products in stock */}
                 </div>
                     </div>
                 </div>
