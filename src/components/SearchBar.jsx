@@ -8,11 +8,11 @@ class SearchBar extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-xs-12 col-sm-4">
-                            <CategoryDropDown categories = { this.props.categories } />
-                            {/* <input type="text" name="searchBar" placeholder="Search" />
-                            <br />
-                            <input type="checkbox" name="searchAll" value="searchAll" /> Only show products in stock */}
-                </div>
+                            <CategoryDropDown
+                                categories={this.props.categories}
+                                onChange={this.props.onChange}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
