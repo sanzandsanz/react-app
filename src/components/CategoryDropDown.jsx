@@ -4,10 +4,6 @@ class CategoryDropDown extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            value : ''
-        }
-
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -18,13 +14,13 @@ class CategoryDropDown extends Component {
     render() {
         const options = this.props.categories.map((item) => 
             {
-                return <option key={item}> { item } </option>
+                return <option value={item} key={item}> { item } </option>
             }
         );
 
         return (
-            <select onChange = {this.handleChange} value = {this.state.value}>
-                <option  key={this.state.value} > --Select-- </option>
+            <select onChange = {this.handleChange} >
+                <option value="none" > --Select-- </option>
                { options }
             </select>
         );

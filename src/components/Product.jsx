@@ -10,8 +10,7 @@ class Product extends Component {
         const listofproducts = productlist.map((item, key) =>
             <ProductDetail key={key} product={item} />
         );
-
-        console.log(listofproducts);
+        
         return (
             <div className="container">
                 <div className="row">
@@ -23,7 +22,6 @@ class Product extends Component {
                 
             </div>
         );
-
     }
 }
 

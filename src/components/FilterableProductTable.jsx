@@ -6,12 +6,11 @@ class FilterableProductTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchTerm: '--Select--'
+            searchTerm: ''
         };
     }
 
     updateSearchTerm = (term) => {
-        console.log('updateSearchTerm');
         this.setState( { searchTerm: term });
     }
 

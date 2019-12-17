@@ -8,7 +8,6 @@ const Title = styled.div`
 `;
 
 class ProductTable extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -18,10 +17,7 @@ class ProductTable extends React.Component {
         }
     }
 
-
     displayAllCategories() {
-        console.log('display all');
-        console.log(this.state.categoryNameOnly);
         return this.state.categoryNameOnly.map((catName) =>
             <ProductListing key={catName} title={catName} products={this.state.categoryWithProducts[catName]} />
         )
@@ -32,10 +28,7 @@ class ProductTable extends React.Component {
             products={this.state.categoryWithProducts[this.props.selectedCategory]} />
     }
 
-
     render() {
-        console.log('product table');
-        console.log(this.props.selectedCategory);
         return (
             <div className="producttable">
                 <h1>{this.props.searchTerm}</h1>
@@ -48,7 +41,8 @@ class ProductTable extends React.Component {
                             <Title>Price</Title>
                         </div>
                         {
-                            this.props.selectedCategory === "--Select--" ? this.displayAllCategories() : this.displaySelectedCategory()
+                            this.props.selectedCategory === "none" || this.props.selectedCategory === "" 
+                                        ? this.displayAllCategories() : this.displaySelectedCategory()
                         }
                     </div>
                 </div>
